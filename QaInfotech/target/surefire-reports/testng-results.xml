@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" ignored="0" total="0" passed="0">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Command line suite" duration-ms="19795" started-at="2019-02-28T12:35:33Z" finished-at="2019-02-28T12:35:53Z">
+    <groups>
+    </groups>
+    <test name="Command line test" duration-ms="19795" started-at="2019-02-28T12:35:33Z" finished-at="2019-02-28T12:35:53Z">
+      <class name="com.QaInfotech.Stepdef.CucumberRunner_Test">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.QaInfotech.Stepdef.CucumberRunner_Test@2c6a3f77]" name="setup" is-config="true" duration-ms="19788" started-at="2019-02-28T12:35:33Z" finished-at="2019-02-28T12:35:53Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- setup -->
+      </class> <!-- com.QaInfotech.Stepdef.CucumberRunner_Test -->
+    </test> <!-- Command line test -->
+  </suite> <!-- Command line suite -->
+</testng-results>
