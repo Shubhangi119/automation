@@ -36,28 +36,16 @@ public class HomePageStepDef extends AppTest {
 	
 	@Before
 	public void getWebsiteUrl() {
-		
 		driver.get("https://www.qainfotech.com");
 	}
 	
 	
-	
-	
-	
-	
 	@Given("^the user is on homepage of the qainfotech website$")
 	public void verifyQaInfotechHomepage() {
-		
-		Assert.assertEquals(true,hp.verifyQaInfoTechWebPageLoaded() );
-		
+		Assert.assertEquals(true,hp.verifyQaInfoTechWebPageLoaded() );	
 		
 	}
-//	@Given("^the user is on web browser$")
-//		public void verifyWebBrowser() {
-//		Assert.assertEquals(true, hp.browserloaded());
-//			
-//		}
-	
+
 	@When("^he/she clicks the \"Careers\" link on topright corner$")
 	public void clickCareerlink() {
 		career =driver.findElement(By.cssSelector(".right .career_non_home_page"));
@@ -87,7 +75,13 @@ public class HomePageStepDef extends AppTest {
 	}
 	@Then("^he/she  automatically scrolled down to a portion in the page with Heading \"Verticals\" portion$")
 	public void scrollverticals() {
-		Assert.assertEquals(true, hp.scrollverticalnav());
+		 Assert.assertTrue(hp.scrollverticalnav());
+	}
+	
+	@When("^he/she clicks the \"VERTICALS\" link on topbar containing qainfotech logo on leftmost side$")
+	public void clickverticals() {
+		verticals=driver.findElement(By.cssSelector(".menu_main .nav-collapse>ul>:nth-child(3)"));
+		verticals.click();
 	}
 	
 	@Then("^the images starts moving again in loop$")
@@ -95,11 +89,7 @@ public class HomePageStepDef extends AppTest {
 		Assert.assertEquals(true, hp.verifyplayscreenloaded());
 		
 	}
-	@When("^he/she clicks the \"VERTICALS\" link on topbar containing qainfotech logo on leftmost side$")
-	public void clickverticals() {
-		verticals=driver.findElement(By.cssSelector(".menu_main .nav-collapse>ul>:nth-child(3)"));
-		verticals.click();
-	}
+	
 	@Then("^he/she  automatically scrolled down to a portion in the page with Heading \"Our Services\"$")
 	public void scrollService() {
 		Assert.assertEquals(true, hp.verifyscrollservicenav());
@@ -192,28 +182,54 @@ public class HomePageStepDef extends AppTest {
 		kncenter=driver.findElement(By.cssSelector(".menu_main .nav-collapse>ul>:nth-child(4)"));
 		kncenter.click();
 		}
+	@When("^he/she types a unavailable query in that search bar and clicks on search button or press enter$")
+	public void typeunavailablesearchquery() {
+		WebElement inputquery = driver.findElement(By.id("s"));
+        inputquery.click();
+        inputquery.sendKeys("Maggi");
+        inputquery.sendKeys(Keys.ENTER);
+	}
+	
 	@Then("^he/she  automatically scrolled down to a portion in the page with Heading \"Downloads\"$")
 	public void scrollknav() {
 		Assert.assertEquals(true, hp.verifyscrollknav());
 	}
-	
-@Then("^he/she is able to go to another page and sees result links containg query term under title\"Search Results for\"$")
-public void checksearchlinkavailable() {
+	@Then("^he/she is able to go to another page and sees results not found message$")
+	public void checkanavailinkverify(){
+	{Assert.assertEquals(true, hp.checkunavailink());
+	}
+	}
+	@Then("^he/she is able to view a knowledge downloads section$")
+	public void ckeckslider() {
+		Assert.assertEquals(true, hp.checksliderimage());
+		
+	}
+	@Then("^he/she is able to see a enquiry form$")
+	public void checkenquiryform() {
+		Assert.assertEquals(true, hp.checkenquiryformverify());
+	}
+	@Then("^he/she is able to see a menulist that is giving information about careers$")
+	public void checkjobmenu() {
+	Assert.assertEquals(true, hp.checkjobmenulist());
+	}
+
+	@Then("^he/she is able to go to another page and sees result links containg query term under title\"Search Results for\"$")
+	public void checksearchlinkavailable() {
 	Assert.assertEquals(true, hp.checkavailink());
-}
+	}
+	@Then("^seven menu bar tabs should be there on right side of header$")
+	public void verifySevenMenuBar() {
+	 Assert.assertEquals(hp.verifySevenMenuBar(),7);
+	}
 	
 
-@When("^he/she types a available query in that search bar and clicks on search button or press enter$")
+	@When("^he/she types a available query in that search bar and clicks on search button or press enter$")
 	public void typesearchquery() {
 		WebElement inputquery = driver.findElement(By.id("s"));
         inputquery.click();
         inputquery.sendKeys("Minesh");
         inputquery.sendKeys(Keys.ENTER);
 	}
-	
-	
-	
-	
 	
 	
 }

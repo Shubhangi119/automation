@@ -15,7 +15,6 @@ import cucumber.api.junit.Cucumber;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 features="Resources",
-//dryRun = true,
 monochrome = true,
 format=
 		{"pretty",
@@ -31,11 +30,6 @@ public class CucumberRunner_Test  {
 		AppTest.setup();
 	}
 	
-	/*@Test
-	  public void setupTest() {
-	    throw new RuntimeException("Test not implemented");
-	  }
-	*/
 	
 	@AfterClass 
 	public static void closeBrowser() {
